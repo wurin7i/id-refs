@@ -3,7 +3,7 @@
     "description": "Indonesian citizen identity references",
     "type": "library",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.1",
         "illuminate/support": "^9.0|^10.0"
     },
     "license": "MIT",
