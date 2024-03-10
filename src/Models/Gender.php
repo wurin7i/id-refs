@@ -5,11 +5,11 @@ namespace WuriN7i\IdRefs\Models;
 use WuriN7i\IdRefs\Enums\ReferenceType;
 
 /**
- * Religion Model
+ * Gender Model
  */
-class Religion extends ReferenceData
+class Gender extends ReferenceData
 {
     use Concerns\AsReference, Concerns\HasDataset;
 
-    protected ReferenceType $refType = ReferenceType::Religion;
+    protected ReferenceType $refType = ReferenceType::Gender;
 }

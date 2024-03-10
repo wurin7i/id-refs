@@ -1,14 +1,12 @@
 <?php
 
-namespace WuriN7i\IdData\Enums;
+namespace WuriN7i\IdRefs\Enums;
 
-use BenSampo\Enum\Enum;
-
-final class RegionLevel extends Enum
+enum RegionLevel: int
 {
-    public const Country  = 0;
-    public const Province = 1;
-    public const City     = 2;
-    public const District = 3;
-    public const Village  = 4;
+    case Country  = 0;
+    case Province = 1;
+    case City     = 2;
+    case District = 3;
+    case Village  = 4;
 }

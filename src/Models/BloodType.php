@@ -1,15 +1,15 @@
 <?php
 
-namespace WuriN7i\IdData\Models;
+namespace WuriN7i\IdRefs\Models;
 
-use WuriN7i\IdData\Enums\ReferenceType;
+use WuriN7i\IdRefs\Enums\ReferenceType;
 
 /**
  * BloodType Model
  */
 class BloodType extends ReferenceData
 {
-    use Concerns\AsReference;
+    use Concerns\AsReference, Concerns\HasDataset;
 
-    public string $type = ReferenceType::BloodType;
+    protected ReferenceType $refType = ReferenceType::BloodType;
 }

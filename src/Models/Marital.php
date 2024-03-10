@@ -1,15 +1,15 @@
 <?php
 
-namespace WuriN7i\IdData\Models;
+namespace WuriN7i\IdRefs\Models;
 
-use WuriN7i\IdData\Enums\ReferenceType;
+use WuriN7i\IdRefs\Enums\ReferenceType;
 
 /**
  * Marital Model
  */
 class Marital extends ReferenceData
 {
-    use Concerns\AsReference;
+    use Concerns\AsReference, Concerns\HasDataset;
 
-    public string $type = ReferenceType::Marital;
+    protected ReferenceType $refType = ReferenceType::Marital;
 }

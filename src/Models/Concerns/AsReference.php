@@ -1,18 +1,18 @@
 <?php
 
-namespace WuriN7i\IdData\Models\Concerns;
+namespace WuriN7i\IdRefs\Models\Concerns;
 
 use Exception;
-use WuriN7i\IdData\Enums\ReferenceType;
-use WuriN7i\IdData\Models\ReferenceData;
-use WuriN7i\IdData\Models\Scopes\ByTypeScope;
+use WuriN7i\IdRefs\Enums\ReferenceType;
+use WuriN7i\IdRefs\Models\ReferenceData;
+use WuriN7i\IdRefs\Models\Scopes\ByTypeScope;
 
 trait AsReference
 {
     public static function bootAsReference(): void
     {
-        static::creating(function(ReferenceData $model) {
-            $model->setType(ReferenceType::fromValue($model->type));
+        static::creating(function (ReferenceData $model) {
+            $model->type = $model->getReferenceType();
         });
 
         static::addGlobalScope(new ByTypeScope());
@@ -20,17 +20,16 @@ trait AsReference
 
     public function initializeAsReference(): void
     {
-        $validImplementation = property_exists($this, 'type');
-
-        try {
-            ReferenceType::fromValue($this->type);
-        } catch (\BenSampo\Enum\Exceptions\InvalidEnumMemberException $th) {
-            $validImplementation = false;
-        }
+        $validImplementation = property_exists($this, 'refType');
 
         if (!$validImplementation) {
             $className = get_class($this);
-            throw new Exception("Class {$className} has not defined or \$type value is not valid.");
+            throw new Exception("Class {$className} does not have a property \$refType or its value is invalid.");
         }
+    }
+
+    public function getReferenceType(): ReferenceType
+    {
+        return $this->refType;
     }
 }

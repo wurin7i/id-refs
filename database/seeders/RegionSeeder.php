@@ -1,10 +1,10 @@
 <?php
 
-namespace WuriN7i\IdData\Database\Seeders;
+namespace WuriN7i\IdRefs\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use WuriN7i\IdData\Enums\RegionLevel;
-use WuriN7i\IdData\Models\Region;
+use WuriN7i\IdRefs\Enums\RegionLevel;
+use WuriN7i\IdRefs\Models\Region;
 
 class RegionSeeder extends Seeder
 {
@@ -99,7 +99,7 @@ class RegionSeeder extends Seeder
 
     protected function filePath(string $fileName): string
     {
-        return __DIR__ . '/csv/' . $fileName;
+        return __DIR__ . "/csv/bps/{$fileName}";
     }
 
     protected function handleCvsFile(string $path, \Closure $callback)

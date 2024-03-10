@@ -1,8 +1,9 @@
 <?php
 
-namespace WuriN7i\IdData;
+namespace WuriN7i\IdRefs;
 
 use Illuminate\Support\ServiceProvider as SupportServiceProvider;
+use WuriN7i\IdRefs\Console\UpdateRegionDataCommand;
 
 class ServiceProvider extends SupportServiceProvider
 {
@@ -17,6 +18,10 @@ class ServiceProvider extends SupportServiceProvider
 
     public function boot()
     {
-        //
+        include(__DIR__ . '/init.php');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([UpdateRegionDataCommand::class]);
+        }
     }
 }

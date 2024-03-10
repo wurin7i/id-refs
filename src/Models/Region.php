@@ -1,14 +1,13 @@
 <?php
 
-namespace WuriN7i\IdData\Models;
+namespace WuriN7i\IdRefs\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use Model;
-use Ramsey\Uuid\Nonstandard\Uuid;
-use WuriN7i\IdData\Enums\RegionLevel;
+use WuriN7i\IdRefs\Enums\RegionLevel;
 
 /**
  * Region Model
@@ -18,31 +17,18 @@ class Region extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'idd_regions';
+    public $table = 'ref_regions';
 
-    /**
-     * {@inheritDoc}
-     */
-    public static function booted()
-    {
-        self::creating(function (self $model) {
-            $model->generateUuid();
-        });
+    protected $casts = [
+        'level' => RegionLevel::class,
+    ];
 
-        parent::booted();
-    }
-
-    public function generateUuid() : void
-    {
-        $this->uuid = Uuid::uuid6();
-    }
-
-    public function parent() : BelongsTo
+    public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
-    public function children() : HasMany
+    public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id');
     }
@@ -73,21 +59,21 @@ class Region extends Model
 
     public function scopeProvinceOnly(Builder $builder): Builder
     {
-        return $this->scopeByLevel($builder, RegionLevel::Province());
+        return $this->scopeByLevel($builder, RegionLevel::Province);
     }
 
     public function scopeCityOnly(Builder $builder): Builder
     {
-        return $this->scopeByLevel($builder, RegionLevel::City());
+        return $this->scopeByLevel($builder, RegionLevel::City);
     }
 
     public function scopeDistrictOnly(Builder $builder): Builder
     {
-        return $this->scopeByLevel($builder, RegionLevel::District());
+        return $this->scopeByLevel($builder, RegionLevel::District);
     }
 
     public function scopeVillageOnly(Builder $builder): Builder
     {
-        return $this->scopeByLevel($builder, RegionLevel::Village());
+        return $this->scopeByLevel($builder, RegionLevel::Village);
     }
 }

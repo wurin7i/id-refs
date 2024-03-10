@@ -1,14 +1,14 @@
 <?php
 
-namespace WuriN7i\IdData\Enums;
+namespace WuriN7i\IdRefs\Enums;
 
-use BenSampo\Enum\Enum;
-
-class ReferenceType extends Enum
+enum ReferenceType: string
 {
-    public const BloodType       = 'blood-type';
-    public const EducationDegree = 'education-degree';
-    public const Marital         = 'marital';
-    public const Occupation      = 'occupation';
-    public const Religion        = 'religion';
+    case BloodType       = 'blood-type';
+    case EducationDegree = 'education-degree';
+    case Citizenship     = 'citizenship';
+    case Gender          = 'gender';
+    case Marital         = 'marital';
+    case Occupation      = 'occupation';
+    case Religion        = 'religion';
 }

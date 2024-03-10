@@ -1,24 +1,22 @@
 {
-    "name": "wurin7i/id-data",
-    "description": "Masted data related to Indonesia citizen identity",
+    "name": "wurin7i/id-refs",
+    "description": "Indonesian citizen identity references",
     "type": "library",
     "require": {
         "php": "^7.4|^8.0",
-        "bensampo/laravel-enum": "^6.0",
-        "ramsey/uuid": "^4.0",
         "illuminate/support": "^9.0|^10.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "WuriN7i\\IdData\\": "src/",
-            "WuriN7i\\IdData\\Database\\Seeders\\": "database/seeders/"
+            "WuriN7i\\IdRefs\\": "src/",
+            "WuriN7i\\IdRefs\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "authors": [
         {
             "name": "Wuri Nugrahadi",
-            "email": "wuri@nugrahadi.com"
+            "email": "wuri.nugrahadi@gmail.com"
         }
     ],
     "minimum-stability": "stable"
