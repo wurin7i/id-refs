@@ -92,7 +92,7 @@ class UpdateRegionDataCommand extends Command
         DB::unprepared(
 <<<SQL
     INSERT INTO ref_regions (`id`, `label`, `name`, `level`, `created_at`, `updated_at`)
-        SELECT REPLACE(`kode`, '.', '') * 100000000, `nama`, `nama`, 2, NOW(), NOW()
+        SELECT REPLACE(`kode`, '.', '') * 100000000, `nama`, `nama`, 1, NOW(), NOW()
         FROM wilayah
         WHERE `kode` REGEXP '^\\\d{2}$'
         ORDER BY `kode`
@@ -106,7 +106,7 @@ SQL);
         DB::unprepared(
 <<<SQL
     INSERT INTO ref_regions (`id`, `label`, `name`, `level`, `parent_id`, `created_at`, `updated_at`)
-        SELECT REPLACE(`kode`, '.', '') * 1000000, `nama`, `nama`, 3, REPLACE(SUBSTR(kode, 1, 2), '.', '') * 100000000, NOW(), NOW()
+        SELECT REPLACE(`kode`, '.', '') * 1000000, `nama`, `nama`, 2, REPLACE(SUBSTR(kode, 1, 2), '.', '') * 100000000, NOW(), NOW()
         FROM wilayah
         WHERE `kode` REGEXP '^\\\d{2}\\\.\\\d{2}$'
         ORDER BY `kode`
@@ -123,7 +123,7 @@ SQL);
             DB::unprepared(
 <<<SQL
     INSERT INTO ref_regions (`id`, `label`, `name`, `level`, `parent_id`, `created_at`, `updated_at`)
-        SELECT REPLACE(`kode`, '.', '') * 10000, `nama`, `nama`, 4, REPLACE(SUBSTR(`kode`, 1, 5), '.', '') * 1000000, NOW(), NOW()
+        SELECT REPLACE(`kode`, '.', '') * 10000, `nama`, `nama`, 3, REPLACE(SUBSTR(`kode`, 1, 5), '.', '') * 1000000, NOW(), NOW()
         FROM wilayah
         WHERE `kode` REGEXP '^\\\d{2}\\\.\\\d{2}\\\.\\\d{2}$'
         ORDER BY `kode`
@@ -141,7 +141,7 @@ SQL);
             DB::unprepared(
 <<<SQL
     INSERT INTO ref_regions (`id`, `label`, `name`, `level`, `parent_id`, `created_at`, `updated_at`)
-        SELECT REPLACE(`kode`, '.', ''), `nama`, `nama`, 5, REPLACE(SUBSTR(`kode`, 1, 8), '.', '') * 10000, NOW(), NOW()
+        SELECT REPLACE(`kode`, '.', ''), `nama`, `nama`, 4, REPLACE(SUBSTR(`kode`, 1, 8), '.', '') * 10000, NOW(), NOW()
         FROM wilayah
         WHERE `kode` REGEXP '^\\\d{2}\\\.\\\d{2}\\\.\\\d{2}\\\.\\\d{4}$'
         ORDER BY `kode`
