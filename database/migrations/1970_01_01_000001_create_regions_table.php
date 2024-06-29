@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('label');
             $table->string('bps_code')->unique()->nullable();
             $table->string('name');
-            $table->enum('level', array_map(fn (RegionLevel $rl) => $rl->value, RegionLevel::cases()));
+            $table->unsignedTinyInteger('level');
             $table->foreignId('parent_id')->nullable()
                 ->references('id')->on('ref_regions');
             $table->boolean('is_hidden')->default(false);
