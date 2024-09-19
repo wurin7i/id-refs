@@ -45,6 +45,11 @@ class ReferenceData extends Model
         });
     }
 
+    public function getConnectionName()
+    {
+        return config()->has('database.connections.vault') ? 'vault' : config('database.default');
+    }
+
     public function getNextSortOrder(): int
     {
         $latestSortOrder = $this->newQuery()->max('sort_order') ?: 0;

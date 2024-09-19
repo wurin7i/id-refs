@@ -23,6 +23,11 @@ class Region extends Model
         'level' => RegionLevel::class,
     ];
 
+    public function getConnectionName()
+    {
+        return config()->has('database.connections.vault') ? 'vault' : config('database.default');
+    }
+
     public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');

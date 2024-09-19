@@ -7,6 +7,11 @@ use WuriN7i\IdRefs\Enums\ReferenceType;
 
 return new class extends Migration
 {
+    public function getConnection(): string
+    {
+        return config('database.connections.vault') ? 'vault' : config('database.default');
+    }
+
     public function up()
     {
         Schema::create('ref_references', function (Blueprint $table) {
