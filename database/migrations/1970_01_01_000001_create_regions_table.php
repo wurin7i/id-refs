@@ -3,10 +3,14 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use WuriN7i\IdRefs\Enums\RegionLevel;
 
 return new class extends Migration
 {
+    public function getConnection(): string
+    {
+        return config('database.connections.vault') ? 'vault' : config('database.default');
+    }
+
     public function up()
     {
         Schema::create('ref_regions', function (Blueprint $table) {
