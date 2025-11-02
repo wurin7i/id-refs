@@ -4,7 +4,12 @@
     "type": "library",
     "require": {
         "php": "^8.1",
-        "illuminate/support": "^9.0||^10.0||^11.0"
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.0|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0"
     },
     "license": "MIT",
     "autoload": {
@@ -13,11 +18,27 @@
             "WuriN7i\\IdRefs\\Database\\Seeders\\": "database/seeders/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Wuri Nugrahadi",
             "email": "wuri.nugrahadi@gmail.com"
         }
     ],
+    "scripts": {
+        "test": "pest",
+        "test-coverage": "XDEBUG_MODE=coverage pest --coverage --coverage-clover=coverage.xml --coverage-html=coverage",
+        "test-ci": "pest --no-coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
     "minimum-stability": "stable"
 }

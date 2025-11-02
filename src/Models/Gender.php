@@ -9,7 +9,8 @@ use WuriN7i\IdRefs\Enums\ReferenceType;
  */
 class Gender extends ReferenceData
 {
-    use Concerns\AsReference, Concerns\HasDataset;
+    use Concerns\AsReference;
+    use Concerns\HasDataset;
 
     protected ReferenceType $refType = ReferenceType::Gender;
 }

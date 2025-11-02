@@ -1,2 +1,7 @@
-vendor
+vendor/
 composer.lock
+coverage/
+coverage.xml
+.phpunit.result.cache
+.phpunit.cache/
+tests/.pest/

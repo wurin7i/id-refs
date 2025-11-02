@@ -54,13 +54,13 @@ class ReferenceDataSeeder extends Seeder
 
     protected function seedEducationDegrees()
     {
-        $path = __DIR__ . '/csv/education_degrees.csv';
+        $path = __DIR__.'/csv/education_degrees.csv';
         $order = -1;
         $sequence = 1;
 
         $this->handleCvsFile($path, function ($data) use (&$order, &$sequence) {
             $attrs = [
-                'code' => ReferenceType::EducationDegree->value . '-' . $sequence++,
+                'code' => ReferenceType::EducationDegree->value.'-'.$sequence++,
                 'label' => $data[1],
                 'sort_order' => $order++,
             ];
@@ -113,13 +113,13 @@ class ReferenceDataSeeder extends Seeder
 
     protected function seedOccupations()
     {
-        $path = __DIR__ . '/csv/occupations.csv';
+        $path = __DIR__.'/csv/occupations.csv';
         $order = 0;
         $sequence = 1;
 
         $this->handleCvsFile($path, function ($data) use (&$order, &$sequence) {
             $attrs = [
-                'code' => ReferenceType::Occupation->value . '-' . $sequence++,
+                'code' => ReferenceType::Occupation->value.'-'.$sequence++,
                 'label' => $data[1],
                 'sort_order' => $order++,
             ];

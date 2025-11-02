@@ -13,7 +13,7 @@ trait UtilsTrait
 
     public function is($against): bool
     {
-        if (!$against instanceof self) {
+        if (! $against instanceof self) {
             $against = self::tryFrom($against);
         }
 

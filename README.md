@@ -1,5 +1,12 @@
 # ID-Refs: Indonesian Citizen Identity References
 
+[![Tests](https://github.com/wurin7i/id-refs/actions/workflows/tests.yml/badge.svg)](https://github.com/wurin7i/id-refs/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/github/wurin7i/id-refs/graph/badge.svg?token=V0DX78938B)](https://codecov.io/github/wurin7i/id-refs)
+[![Packagist Version](https://img.shields.io/packagist/v/wurin7i/id-refs)](https://packagist.org/packages/wurin7i/id-refs)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![PHP Version](https://img.shields.io/badge/php-%5E8.1-blue.svg)](https://www.php.net/)
+[![Laravel](https://img.shields.io/badge/laravel-10%7C11%7C12-red.svg)](https://laravel.com/)
+
 ## Description
 
 This library provides a collection of references and utilities related to Indonesian citizen identity documents, such as KTP (Kartu Tanda Penduduk) and KK (Kartu Keluarga). It aims to simplify the process of working with these identifiers in your PHP applications.
@@ -16,7 +23,7 @@ This will install the library and its dependencies into your project's vendor di
 ## Requirements
 
 - PHP 8.1 and above
-- illuminate/support ^9.0 or ^10.0
+- illuminate/support ^10.0|^11.0|^12.0
 
 ## Usage
 

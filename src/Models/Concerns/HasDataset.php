@@ -33,7 +33,7 @@ trait HasDataset
 
     public static function dataset(): Collection
     {
-        $instance = new self();
+        $instance = new self;
         $cacheKey = $instance->getReferenceType()->value;
 
         return Cache::rememberForever($cacheKey, fn () => $instance->all());

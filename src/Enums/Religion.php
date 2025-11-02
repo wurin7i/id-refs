@@ -3,7 +3,6 @@
 namespace WuriN7i\IdRefs\Enums;
 
 use WuriN7i\IdRefs\Contracts\ReferenceCoder;
-use WuriN7i\IdRefs\Enums\UtilsTrait;
 
 enum Religion: string implements ReferenceCoder
 {

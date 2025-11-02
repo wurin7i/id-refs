@@ -9,7 +9,8 @@ use WuriN7i\IdRefs\Enums\ReferenceType;
  */
 class Marital extends ReferenceData
 {
-    use Concerns\AsReference, Concerns\HasDataset;
+    use Concerns\AsReference;
+    use Concerns\HasDataset;
 
     protected ReferenceType $refType = ReferenceType::Marital;
 }
