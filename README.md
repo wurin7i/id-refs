@@ -1,7 +1,8 @@
 # ID-Refs: Indonesian Citizen Identity References
 
 [![Tests](https://github.com/wurin7i/id-refs/actions/workflows/tests.yml/badge.svg)](https://github.com/wurin7i/id-refs/actions/workflows/tests.yml)
-[![Coverage](https://codecov.io/gh/wurin7i/id-refs/branch/main/graph/badge.svg)](https://codecov.io/gh/wurin7i/id-refs)
+[![codecov](https://codecov.io/github/wurin7i/id-refs/graph/badge.svg?token=V0DX78938B)](https://codecov.io/github/wurin7i/id-refs)
+[![Packagist Version](https://img.shields.io/packagist/v/wurin7i/id-refs)](https://packagist.org/packages/wurin7i/id-refs)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP Version](https://img.shields.io/badge/php-%5E8.1-blue.svg)](https://www.php.net/)
 [![Laravel](https://img.shields.io/badge/laravel-10%7C11%7C12-red.svg)](https://laravel.com/)
