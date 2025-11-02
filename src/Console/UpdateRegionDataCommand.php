@@ -139,7 +139,6 @@ LIMIT 1000 OFFSET {$offset}
 SQL
             );
 
-
             $bar->advance();
         }
     }

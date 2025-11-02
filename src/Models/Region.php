@@ -19,12 +19,26 @@ class Region extends Model
      */
     public $table = 'ref_regions';
 
+    protected $fillable = [
+        'label',
+        'bps_code',
+        'name',
+        'level',
+        'parent_id',
+        'is_hidden',
+    ];
+
     protected $casts = [
         'level' => RegionLevel::class,
+        'is_hidden' => 'boolean',
     ];
 
     public function getConnectionName()
     {
+        if (app()->environment('testing')) {
+            return 'testing';
+        }
+
         return config()->has('database.connections.vault') ? 'vault' : config('database.default');
     }
 
@@ -40,7 +54,7 @@ class Region extends Model
 
     public function scopeIsActive(Builder $builder, bool $availability = true): Builder
     {
-        return $builder->where($this->qualifyColumn('is_active'), $availability);
+        return $builder->where($this->qualifyColumn('is_hidden'), ! $availability);
     }
 
     public function getLabelAttribute($value)

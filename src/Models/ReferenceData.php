@@ -28,7 +28,7 @@ class ReferenceData extends Model
      */
     protected $table = 'ref_references';
 
-    protected $fillable = ['code', 'label', 'sort_order'];
+    protected $fillable = ['type', 'code', 'label', 'sort_order'];
 
     protected $casts = [
         'type' => ReferenceType::class,
@@ -48,6 +48,10 @@ class ReferenceData extends Model
 
     public function getConnectionName()
     {
+        if (app()->environment('testing')) {
+            return 'testing';
+        }
+
         return config()->has('database.connections.vault') ? 'vault' : config('database.default');
     }
 

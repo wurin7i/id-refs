@@ -15,7 +15,7 @@ trait AsReference
             $model->type = $model->getReferenceType();
         });
 
-        static::addGlobalScope(new ByTypeScope());
+        static::addGlobalScope(new ByTypeScope);
     }
 
     public function initializeAsReference(): void
