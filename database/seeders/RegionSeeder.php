@@ -57,6 +57,7 @@ class RegionSeeder extends Seeder
 
             $labeledChildren = collect($children)->map(function ($city) use ($province) {
                 $city->label = "{$city->name}, {$province->label}";
+
                 return $city;
             });
 
@@ -90,6 +91,7 @@ class RegionSeeder extends Seeder
 
             $labeledChildren = collect($children)->map(function ($district) use ($city) {
                 $district->label = "{$district->name}, {$city->label}";
+
                 return $district;
             });
 
@@ -99,7 +101,7 @@ class RegionSeeder extends Seeder
 
     protected function filePath(string $fileName): string
     {
-        return __DIR__ . "/csv/bps/{$fileName}";
+        return __DIR__."/csv/bps/{$fileName}";
     }
 
     protected function handleCvsFile(string $path, \Closure $callback)

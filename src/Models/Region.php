@@ -3,10 +3,10 @@
 namespace WuriN7i\IdRefs\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
-use Model;
 use WuriN7i\IdRefs\Enums\RegionLevel;
 
 /**

@@ -22,7 +22,7 @@ trait AsReference
     {
         $validImplementation = property_exists($this, 'refType');
 
-        if (!$validImplementation) {
+        if (! $validImplementation) {
             $className = get_class($this);
             throw new Exception("Class {$className} does not have a property \$refType or its value is invalid.");
         }

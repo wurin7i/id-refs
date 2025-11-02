@@ -9,8 +9,8 @@ class ServiceProvider extends SupportServiceProvider
 {
     public function register()
     {
-        if (!class_exists('Model')) {
-            require(__DIR__ . '/../helpers/Model.php');
+        if (! class_exists('Model')) {
+            require __DIR__ . '/../helpers/Model.php';
         }
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
@@ -18,7 +18,7 @@ class ServiceProvider extends SupportServiceProvider
 
     public function boot()
     {
-        include(__DIR__ . '/init.php');
+        include __DIR__ . '/init.php';
 
         if ($this->app->runningInConsole()) {
             $this->commands([UpdateRegionDataCommand::class]);

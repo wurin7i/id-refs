@@ -3,8 +3,8 @@
 namespace WuriN7i\IdRefs\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Model;
 use WuriN7i\IdRefs\Contracts\ReferenceCoder;
 use WuriN7i\IdRefs\Enums\ReferenceType;
 
@@ -15,6 +15,7 @@ use WuriN7i\IdRefs\Enums\ReferenceType;
  * @property string $code
  * @property string $label
  * @property int $sort_order
+ *
  * @method static Builder applyType(string|ReferenceType $refType)
  * @method static Builder applyCode(string|ReferenceCoder $refCoder)
  */
@@ -39,7 +40,7 @@ class ReferenceData extends Model
     protected static function booted(): void
     {
         static::creating(function (self $model) {
-            if (!$model->sort_order) {
+            if (! $model->sort_order) {
                 $model->sort_order = $model->getNextSortOrder();
             }
         });
